@@ -17,9 +17,6 @@ if command == "add":
         json.dump(tasks, f, indent=2)
     print("Task added")
 
-elif command == "list":
-    for task in tasks:
-        print(task["id"], task["description"], task["status"]) 
 
 elif command == "mark-done":
     task_id = int(sys.argv[2])
@@ -47,7 +44,25 @@ elif command == "delete":
             break
     with open("tasks.json", "w")as f:
         json.dump(tasks, f, indent=2)
-    print("Task deleted")    
+    print("Task deleted") 
+
+elif command == "update":
+    task_id = int(sys.argv[2])
+    new_description = sys.argv[3]
+    for task in tasks:
+        if task["id"]== task_id:
+            task["description"] = new_description
+    with open("tasks.json", "w")as f:
+        json.dump(tasks,f , indent=2)
+    print("Task updated")
+
+elif command == "list":
+    status_filter = None
+    if len(sys.argv)>2:
+        status_filter= sys.argv[2] 
+    for task in tasks:
+        if status_filter is None or task["status"]== status_filter:
+            print(task["id"], task["description"], task["status"])                 
 
 else:
     print("Unknown command")               
