@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "description": "Buy groceries",
+    "status": "done"
+  },
+  {
+    "id": 2,
+    "description": "Study DSA",
+    "status": "todo"
+  },
+  {
+    "id": 3,
+    "description": "Call mom",
+    "status": "in-progress"
+  },
+  {
+    "id": 5,
+    "description": "Call mom",
+    "status": "todo"
+  },
+  {
+    "id": 6,
+    "description": "Buy milk",
+    "status": "todo"
+  }
+]
